@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { AppBar, Toolbar, ThemeProvider, CssBaseline } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { GlobalHeader } from "./GlobalHeader";
+
+const AppWrapper = () => {
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: "dark",
+          background: { default: "#222", paper: "#232323", modal: "#434343" },
+        },
+      }),
+    []
+  );
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  );
+};
+
+export default AppWrapper;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppBar position="static">
+      <Toolbar style={{ backgroundColor: "#222" }}>
+        <GlobalHeader />
+      </Toolbar>
+    </AppBar>
   );
 }
-
-export default App;
