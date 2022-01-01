@@ -1,20 +1,18 @@
 import React from "react";
 import { AppBar, Toolbar, ThemeProvider, CssBaseline } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { GlobalHeader } from "./GlobalHeader";
+import { GlobalHeader } from "./components/GlobalHeader";
+import { LeftSidebar } from "./components/LeftSidebar";
+
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+    background: { default: "#222", paper: "#232323", modal: "#434343" },
+    border: { primary: "#666" },
+  },
+});
 
 const AppWrapper = () => {
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: "dark",
-          background: { default: "#222", paper: "#232323", modal: "#434343" },
-        },
-      }),
-    []
-  );
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -27,10 +25,11 @@ export default AppWrapper;
 
 function App() {
   return (
-    <AppBar position="static">
-      <Toolbar style={{ backgroundColor: "#222" }}>
+    <>
+      <AppBar position="fixed" sx={{ boxShadow: 0, margin: 0 }}>
         <GlobalHeader />
-      </Toolbar>
-    </AppBar>
+      </AppBar>
+      <LeftSidebar />
+    </>
   );
 }
