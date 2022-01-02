@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Paper, Toolbar } from "@mui/material";
+import { Sections } from "./Sections";
 
 export const LeftSidebar = () => {
   return (
@@ -10,27 +11,22 @@ export const LeftSidebar = () => {
           display: "flex",
           flexDirection: "column",
 
-          width: 300,
-          height: "100vh",
-          paddingTop: "80px",
-
           position: "fixed",
           left: 0,
           backgroundColor: "background.paper",
 
+          width: 300,
+          height: "100vh",
+          paddingTop: "80px",
+
           borderRight: 1,
           borderColor: "border.primary",
+          overflow: "auto",
 
           zIndex: 0,
         }}
       >
-        <ul>
-          {Array(10)
-            .fill(1)
-            .map((el) => (
-              <li>thingStuff</li>
-            ))}
-        </ul>
+        <Sections />
       </Box>
     </Paper>
   );
