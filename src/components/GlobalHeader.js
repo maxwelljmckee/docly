@@ -13,6 +13,7 @@ export const GlobalHeader = () => {
         borderBottom: 1,
         borderColor: "border.primary",
         zIndex: 100,
+        height: 80,
       }}
     >
       <Box
@@ -21,15 +22,13 @@ export const GlobalHeader = () => {
           justifyContent: "space-between",
           alignItems: "center",
           width: "100%",
+          height: "100%",
         }}
       >
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            borderRight: 1,
-            borderColor: "border.primary",
-            width: 300,
           }}
         >
           {logo.img ? (
