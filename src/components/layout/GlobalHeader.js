@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Avatar, Typography, Toolbar } from "@mui/material";
-import { config } from "../config";
+import { config } from "../../config";
 
 export const GlobalHeader = () => {
   const { logo = {} } = config;

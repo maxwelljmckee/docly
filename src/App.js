@@ -1,17 +1,12 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
-import {
-  AppBar,
-  Toolbar,
-  ThemeProvider,
-  CssBaseline,
-  Box,
-} from "@mui/material";
+import { AppBar, ThemeProvider, CssBaseline } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { GlobalHeader } from "./components/GlobalHeader";
-import { LeftSidebar } from "./components/LeftSidebar";
-import { RightSidebar } from "./components/RightSidebar";
-import { MainPageContent } from "./components/MainPageContent";
+import { GlobalHeader } from "./components/layout/GlobalHeader";
+import { LeftSidebar } from "./components/layout/LeftSidebar";
+import { RightSidebar } from "./components/layout/RightSidebar";
+import { MainPageContent } from "./components/layout/MainPageContent";
+import { Layout } from "./components/layout/Layout";
 import { Routes } from "./components/Routes";
 
 const theme = createTheme({
@@ -35,8 +30,11 @@ const AppWrapper = () => {
 
 function App() {
   return (
-    <>
-      <AppBar position="fixed" sx={{ boxShadow: 0, margin: 0 }}>
+    <Layout>
+      <AppBar
+        position="fixed"
+        sx={{ boxShadow: 0, margin: 0, gridArea: "header" }}
+      >
         <GlobalHeader />
       </AppBar>
       <LeftSidebar />
@@ -45,7 +43,7 @@ function App() {
       <MainPageContent>
         <Routes />
       </MainPageContent>
-    </>
+    </Layout>
   );
 }
 

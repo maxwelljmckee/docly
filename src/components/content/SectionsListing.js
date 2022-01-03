@@ -7,11 +7,12 @@ import {
   List,
   ListItem,
   Typography,
+  Box,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { config } from "../config";
+import { config } from "../../config";
 
-export const Sections = () => {
+export const SectionsListing = () => {
   const { push } = useHistory();
   const { sections = [] } = config;
 
@@ -21,7 +22,7 @@ export const Sections = () => {
   }, []);
 
   return (
-    <>
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
       {sections.map((section) => (
         <Accordion disableGutters>
           <AccordionSummary
@@ -50,6 +51,6 @@ export const Sections = () => {
           </AccordionDetails>
         </Accordion>
       ))}
-    </>
+    </Box>
   );
 };
